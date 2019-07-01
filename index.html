@@ -191,7 +191,7 @@
                   }).done(function (response) {
                     console.log(response);
                     var newAlbumImg = $('<img>');
-                    newAlbumImg.attr('src',response.albums.items[0].images[0]);
+                    newAlbumImg.attr('src',response.albums.items[0].images[0].url);
                     $('#artist_albums').append(newAlbumImg);
                   });
                 };
