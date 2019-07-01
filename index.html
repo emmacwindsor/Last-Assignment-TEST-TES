@@ -197,7 +197,7 @@
                     for(var i=0; i<8; i++){
                       var newAlbumImg = $('<img>');
                       newAlbumImg.addClass('albumImage');
-                      newAlbumImg.attr('src',response.albums.items[0].images[i].url);
+                      newAlbumImg.attr('src',response.albums.items[i].images[0].url);
                       $('#artist_albums').append(newAlbumImg);
                     }
                   });
