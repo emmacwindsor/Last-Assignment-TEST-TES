@@ -185,7 +185,7 @@
                       request.setRequestHeader("Authorization", authorizationToken);
                       request.setRequestHeader("Accept", "application/json");
                     },  
-                    url: 'https://api.spotify.com/v1/search?q=megan+the+stallion&type=artist',
+                    url: 'https://api.spotify.com/v1/search?q=megan%20the%20stallion&type=artist',
                     method: 'GET',
                     success: function (data) {
                       console.log("got data", data);
