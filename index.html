@@ -131,6 +131,9 @@
                 Blend & Snap Artist Pick of the Month: Megan Thee Stallion
               </h4>
               <ul id="artist_albums"></ul>
+              <button id="buttonTwo">
+                Login to Spotift
+              </button>
               <button id="buttonOne">
                 Find Her Albums
               </button>
@@ -174,10 +177,7 @@
 
 
                 function SearchAPI() {
-                  var scope = "user-library-modify";
-                  console.log(scope);
-                  console.log(encodeURIComponent(scope));
-                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=adc68ae8d963414aa25c35863d502e08&response_type=token&scope=user-library-modify&redirect_uri=' + redirectUri;
+                  console.log("searching...");
                   var query = 'megan+the+stallion';
                   $.ajax({
                     method: "GET",
@@ -198,6 +198,9 @@
                     }
                   });
                 };
+                $('#buttonTwo').click(function () {
+                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=adc68ae8d963414aa25c35863d502e08&response_type=token&scope=user-library-modify&redirect_uri=' + redirectUri;
+                });
                 $('#buttonOne').click(function () {
                   SearchAPI();
                 });
