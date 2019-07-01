@@ -195,9 +195,9 @@
                   });
 
                 };
-
-                function SearchAPI() {
-                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=adc68ae8d963414aa25c35863d502e08&response_type=token&scope=' + encodeURIComponent() + '&redirect_uri=' + redirectUri;
+                var scope = "user-top-read"
+                function SearchAPI(scope) {
+                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=adc68ae8d963414aa25c35863d502e08&response_type=token&scope=' + encodeURIComponent(scope) + '&redirect_uri=' + redirectUri;
                   var query = 'megan+the+stallion';
                   $.ajax({
                     method: "GET",
