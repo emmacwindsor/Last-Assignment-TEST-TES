@@ -185,7 +185,7 @@
                       request.setRequestHeader("Authorization", authorizationToken);
                       request.setRequestHeader("Accept", "application/json");
                     },
-                    url: 'https://api.spotify.com/v1/search?q=beyonce&type=artist&market=US&limit=25&offset=0',
+                    url: 'https://api.spotify.com/v1/search?q=beyonce&type=artist&market=US&limit=25',
                   }).fail(function (jqXHR, textStatus, errorThrown) {
                     location.reload();
                   }).done(function (response) {
