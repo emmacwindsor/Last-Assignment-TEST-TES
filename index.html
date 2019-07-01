@@ -157,9 +157,6 @@
 
                 var base64Token = window.btoa(client_id + ':' + client_secret);
 
-                $('#buttonOne').click(function () {
-                  SearchAPI();
-                });
                 var redirectUri = window.location.href;
                 var authorizationToken = "";
                 var queryURL = "";
@@ -221,6 +218,9 @@
                     }
                   });
                 };
+                $('#buttonOne').click(function () {
+                  SearchAPI();
+                });
                 $(document).ready(function () {
                   $("#btn1").click(function () {
                     alert($("#test").text());
