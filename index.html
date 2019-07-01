@@ -160,7 +160,6 @@
                 var redirectUri = window.location.href;
                 var authorizationToken = "";
                 var queryURL = "";
-                var searchTerm = $('#searchTerm').val().trim().toLowerCase();
                 var redirectUri = window.location.href;
                 if (redirectUri !== "https://swhufnagel.github.io/Last-Assignment-TEST-TES/") {
                   redirectUri = redirectUri.substring(0, redirectUri.length - 1); // Used to truncate a trailing / (slash) so the login click handler works correctly
@@ -174,7 +173,7 @@
                 }
 
                 var MakeAPICall = function () {
-                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=b12049b91f73493bb92b20ecc909f7d7&response_type=token&scope=' + encodeURIComponent(scope) + '&redirect_uri=' + redirectUri;
+                 
                   console.log("calling ajax");
                   $.ajax({
                     url: '',
@@ -198,6 +197,7 @@
                 };
 
                 function SearchAPI() {
+                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=b12049b91f73493bb92b20ecc909f7d7&response_type=token&scope=' + encodeURIComponent(scope) + '&redirect_uri=' + redirectUri;
                   var query = 'megan+the+stallion';
                   $.ajax({
                     method: "GET",
