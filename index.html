@@ -19,6 +19,10 @@
   h6 {
     font-family: "Impact", cursive, sans-serif;
   }
+  .albumImage{
+    height: "250px";
+    width: "250px";
+  }
 </style>
 
 <body style="background-color:hotpink;">
@@ -190,9 +194,12 @@
                     location.reload();
                   }).done(function (response) {
                     console.log(response);
-                    var newAlbumImg = $('<img>');
-                    newAlbumImg.attr('src',response.albums.items[0].images[0].url);
-                    $('#artist_albums').append(newAlbumImg);
+                    for(var i=0; i<8; i++){
+                      var newAlbumImg = $('<img>');
+                      newAlbumImg.addClass('albumImage');
+                      newAlbumImg.attr('src',response.albums.items[0].images[i].url);
+                      $('#artist_albums').append(newAlbumImg);
+                    }
                   });
                 };
                 $('#buttonTwo').click(function () {
