@@ -172,30 +172,8 @@
                   console.log(authorizationToken);
                 }
 
-                var MakeAPICall = function () {
-                 
-                  console.log("calling ajax");
-                  $.ajax({
-                    url: '',
-                    beforeSend: function (xhrObj) {
-                      xhrObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                      xhrObj.setRequestHeader("Authorization", "Basic " + base64Token);
-                    },
-                    data: {
-                      grant_type: 'client_credentials'
-                    },
-                    dataType: 'json',
-                    method: 'POST',
-                    success: function (response) {
 
-                      var token = response.access_token;
-                      console.log("got token", token);
-                      SearchAPI(token);
-                    }
-                  });
-
-                };
-                var scope = "user-top-read"
+                var scope = "user-library-modify"
                 function SearchAPI(scope) {
                   window.location.href = 'https://accounts.spotify.com/authorize?client_id=adc68ae8d963414aa25c35863d502e08&response_type=token&scope=' + encodeURIComponent(scope) + '&redirect_uri=' + redirectUri;
                   var query = 'megan+the+stallion';
