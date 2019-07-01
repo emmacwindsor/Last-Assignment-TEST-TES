@@ -1,8 +1,12 @@
 <html>
-
-<head>
-  <title>Blend & Snap</title>
-</head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Blend & Snap</title>
+    </head>
 <style>
   html,
   body,
@@ -130,7 +134,20 @@
                 Find Her Albums
               </button>
 
+              <p id="test">Blend <b>OR</b> Snap? </p>
 
+              <button id="btn1">Blend</button>
+              <button id="btn2">Snap</button>
+
+              <div align="center" style="border:3px solid purple">
+                <address>
+                  Written by <a href="mailto:blendandsnappromo@gmail.com">Emma Windsor of Blend & Snap</a>.<br>
+                  Visit us at:<br>
+                  <a href="https://soundcloud.com/blendandsnappp">Blend & Snap</a><br>
+                  Los Angeles<br>
+                  USA
+                </address>
+              </div>
               <script language="javascript"
                 src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
               <script>
@@ -159,7 +176,7 @@
                     success: function (response) {
 
                       var token = response.access_token;
-
+                      console.log("got token", token);
                       SearchAPI(token);
                     }
                   });
@@ -180,14 +197,11 @@
                     },
                     success: function (data) {
                       $.each(data.items, function (index, value) {
-                        console.log(data);
+                        console.log("got data", data);
                       })
                     }
                   });
                 };
-              </script>
-
-              <script>
                 $(document).ready(function () {
                   $("#btn1").click(function () {
                     alert($("#test").text());
@@ -198,20 +212,6 @@
                 });
               </script>
 
-              <p id="test">Blend <b>OR</b> Snap? </p>
-
-              <button id="btn1">Blend</button>
-              <button id="btn2">Snap</button>
-
-              <div align="center" style="border:3px solid purple">
-                <address>
-                  Written by <a href="mailto:blendandsnappromo@gmail.com">Emma Windsor of Blend & Snap</a>.<br>
-                  Visit us at:<br>
-                  <a href="https://soundcloud.com/blendandsnappp">Blend & Snap</a><br>
-                  Los Angeles<br>
-                  USA
-                </address>
-              </div>
 </body>
 
 </html>
