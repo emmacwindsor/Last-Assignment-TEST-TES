@@ -19,7 +19,7 @@
   h6 {
     font-family: "Impact", cursive, sans-serif;
   }
-  .albumImage{
+  #albumImage{
     height: "250px";
     width: "250px";
   }
@@ -196,7 +196,7 @@
                     console.log(response);
                     for(var i=0; i<8; i++){
                       var newAlbumImg = $('<img>');
-                      newAlbumImg.addClass('albumImage');
+                      newAlbumImg.attr('id', 'albumImage');
                       newAlbumImg.attr('src',response.albums.items[i].images[0].url);
                       $('#artist_albums').append(newAlbumImg);
                     }
