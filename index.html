@@ -130,13 +130,13 @@
               <h4>
                 Blend & Snap Artist Pick of the Month: Megan Thee Stallion
               </h4>
-              <ul id="artist_albums"></ul>
               <button id="buttonTwo">
-                Login to Spotift
+                Login to Spotify
               </button>
               <button id="buttonOne">
                 Find Her Albums
               </button>
+              <ul id="artist_albums"></ul>
 
               <p id="test">Blend <b>OR</b> Snap? </p>
 
@@ -184,13 +184,9 @@
                     beforeSend: function (request) {
                       request.setRequestHeader("Authorization", authorizationToken);
                       request.setRequestHeader("Accept", "application/json");
-                    },
-                    url: '"https://api.spotify.com/v1/artists/181bsRPaVXVlUKXrxwZfHK/albums?market=US&limit=2',
+                    },  
+                    url: 'https://api.spotify.com/v1/search?q=megan+the+stallion&type=artist',
                     method: 'GET',
-                    data: {
-                      q: 'artist:' + query,
-                      type: 'album'
-                    },
                     success: function (data) {
                       console.log("got data", data);
                       $.each(data.items, function (index, value) {
