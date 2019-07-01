@@ -1,12 +1,13 @@
 <html>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Blend & Snap</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blend & Snap</title>
+</head>
 <style>
   html,
   body,
@@ -157,13 +158,29 @@
                 var base64Token = window.btoa(client_id + ':' + client_secret);
 
                 $('#buttonOne').click(function () {
-                  MakeAPICall();
+                  SearchAPI();
                 });
+                var redirectUri = window.location.href;
+                var authorizationToken = "";
+                var queryURL = "";
+                var searchTerm = $('#searchTerm').val().trim().toLowerCase();
+                var redirectUri = window.location.href;
+                if (redirectUri !== "https://swhufnagel.github.io/Last-Assignment-TEST-TES/") {
+                  redirectUri = redirectUri.substring(0, redirectUri.length - 1); // Used to truncate a trailing / (slash) so the login click handler works correctly
+                }
+                function getAuthorizationToken() {
+                  // This function needs to be called every time the page is loaded so that when users
+                  // are returned to the app after authenticating in Spotify, the access token is captured
+                  var returnedAuthorizationToken = location.hash.substr(1)
+                  authorizationToken = "Bearer " + returnedAuthorizationToken.substring(returnedAuthorizationToken.indexOf("=") + 1, returnedAuthorizationToken.indexOf("&"));
+                  console.log(authorizationToken);
+                }
 
                 var MakeAPICall = function () {
-
+                  window.location.href = 'https://accounts.spotify.com/authorize?client_id=b12049b91f73493bb92b20ecc909f7d7&response_type=token&scope=' + encodeURIComponent(scope) + '&redirect_uri=' + redirectUri;
+                  console.log("calling ajax");
                   $.ajax({
-                    url: 'https://accounts.spotify.com/api/token',
+                    url: '',
                     beforeSend: function (xhrObj) {
                       xhrObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                       xhrObj.setRequestHeader("Authorization", "Basic " + base64Token);
@@ -186,18 +203,20 @@
                 var SearchAPI = function (token) {
                   var query = 'megan+the+stallion';
                   $.ajax({
-                    url: '"https://api.spotify.com/v1/artists/181bsRPaVXVlUKXrxwZfHK/albums?market=US&limit=2',
-                    headers: {
-                      'Authorization': 'Bearer ' + token,
+                    method: "GET",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("Authorization", authorizationToken);
+                      request.setRequestHeader("Accept", "application/json");
                     },
+                    url: '"https://api.spotify.com/v1/artists/181bsRPaVXVlUKXrxwZfHK/albums?market=US&limit=2',
                     method: 'GET',
                     data: {
                       q: 'artist:' + query,
                       type: 'album'
                     },
                     success: function (data) {
+                      console.log("got data", data);
                       $.each(data.items, function (index, value) {
-                        console.log("got data", data);
                       })
                     }
                   });
