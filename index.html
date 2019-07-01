@@ -190,7 +190,9 @@
                     location.reload();
                   }).done(function (response) {
                     console.log(response);
-                    console.log(response.artists[0])
+                    var newAlbumImg = $('<img>');
+                    newAlbumImg.attr('src',response.albums.items[0].images[0]);
+                    $('#artist_albums').append(newAlbumImg);
                   });
                 };
                 $('#buttonTwo').click(function () {
