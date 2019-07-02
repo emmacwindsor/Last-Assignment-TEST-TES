@@ -182,6 +182,7 @@
 
                 function SearchAPI() {
                   console.log("searching...");
+                  console.log(authorizationToken);
                   $.ajax({
                     method: "GET",
                     beforeSend: function (request) {
@@ -208,6 +209,7 @@
                   SearchAPI();
                 });
                 $(document).ready(function () {
+                  getAuthorizationToken();
                   $("#btn1").click(function () {
                     alert($("#test").text());
                   });
