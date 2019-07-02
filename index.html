@@ -47,6 +47,12 @@
     </style>
   </head>
 
+  <script>
+  function myFunction() {
+    alert("Welcome to your new favorite music blog!");
+  }
+  </script>
+  
   <div class="column">
     <img src="assets/photos/Blend_Snap_Logo.jpg" alt="Blend_Snap_Logo" style="width:100%">
   </div>
@@ -132,7 +138,7 @@
               </script>
 
               <h4>
-                Blend & Snap Artist Pick of the Month: Megan Thee Stallion
+                Blend & Snap Artist Pick of the Month: Beyonce
               </h4>
               <button id="buttonTwo">
                 Login to Spotify
@@ -169,11 +175,10 @@
                 var queryURL = "";
                 var redirectUri = window.location.href;
                 if (redirectUri !== "https://swhufnagel.github.io/Last-Assignment-TEST-TES/" && redirectUri !== "https://emmacwindsor.github.io/Last-Assignment-TEST-TES/") {
-                  redirectUri = redirectUri.substring(0, redirectUri.length - 1); // Used to truncate a trailing / (slash) so the login click handler works correctly
+                  redirectUri = redirectUri.substring(0, redirectUri.length - 1); 
                 }
                 function getAuthorizationToken() {
-                  // This function needs to be called every time the page is loaded so that when users
-                  // are returned to the app after authenticating in Spotify, the access token is captured
+                  
                   var returnedAuthorizationToken = location.hash.substr(1)
                   authorizationToken = "Bearer " + returnedAuthorizationToken.substring(returnedAuthorizationToken.indexOf("=") + 1, returnedAuthorizationToken.indexOf("&"));
                   console.log(authorizationToken);
