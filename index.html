@@ -168,7 +168,7 @@
                 var authorizationToken = "";
                 var queryURL = "";
                 var redirectUri = window.location.href;
-                if (redirectUri !== "https://emmacwindsor.github.io/Last-Assignment-TEST-TES/") {
+                if (redirectUri !== "https://emmacwindsor.github.io/Last-Assignment-TEST-TES/" ||"https://swhufnagel.github.io/Last-Assignment-TEST-TES/" ) {
                   redirectUri = redirectUri.substring(0, redirectUri.length - 1); // Used to truncate a trailing / (slash) so the login click handler works correctly
                 }
                 function getAuthorizationToken() {
